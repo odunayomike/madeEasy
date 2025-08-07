@@ -325,7 +325,36 @@ namespace SoftlightMF
 
             catch (SqlException e)
             {
-                MessageBox.Show("Oops! The server was not found or was inaccessible");
+                string errorMessage = $"Database Error:\n" +
+                                    $"Error Number: {e.Number}\n" +
+                                    $"Severity: {e.Class}\n" +
+                                    $"State: {e.State}\n" +
+                                    $"Procedure: {e.Procedure ?? "N/A"}\n" +
+                                    $"Line: {e.LineNumber}\n" +
+                                    $"Server: {e.Server ?? "N/A"}\n" +
+                                    $"Message: {e.Message}";
+                
+                MessageBox.Show(errorMessage, "SQL Error Details", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+                // Also show a user-friendly message based on common error numbers
+                switch (e.Number)
+                {
+                    case 2:
+                        MessageBox.Show("Cannot connect to the database server. Please check your network connection.", "Connection Error");
+                        break;
+                    case 18456:
+                        MessageBox.Show("Login failed. Please check your username and password.", "Authentication Error");
+                        break;
+                    case 208:
+                        MessageBox.Show("Database table or stored procedure not found.", "Database Object Missing");
+                        break;
+                    case 2714:
+                        MessageBox.Show("Database object already exists.", "Duplicate Object");
+                        break;
+                    default:
+                        MessageBox.Show($"SQL Error {e.Number}: {e.Message}", "Database Error");
+                        break;
+                }
             }
 
         }
