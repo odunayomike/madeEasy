@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="MadeEasyMF.exe" version="1.0.0.206" publicKeyToken="f9496bddc02908f7" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="Softlight Logo.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="MadeEasyMF" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="MadeEasyMF.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DatabaseLibrary.dll" size="53760">
+      <assemblyIdentity name="DatabaseLibrary" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>4LPD9MePgO4ayzTPTHLFjzbf2TAP8N52j+gwDEK53Tg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MadeEasyMF.exe" size="525824">
+      <assemblyIdentity name="MadeEasyMF" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>tLddHueucNfpc5VqN0lj5ALwYx0mM6tmC1z56MMnxJA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="MadeEasyMF.exe.config" size="351">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>3Et3en7Vse3Qxjp+KNW7ziVFxKx8+g2hLC4zXbsPJbk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Softlight Logo.ico" size="12206">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>+Sq7PcxwHItOePKZaHgcO21olr4wgpgBsnjO1+iLr9M=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=PROGRAMMER\HP PC" issuerKeyHash="78de52e6a4b91f55dc1f5536460679971501f0a5" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>FdPcQPUGvuVmZwdD1C6XqJzp1tXH3yu4IzB4LGxmp8s=</DigestValue></Reference></SignedInfo><SignatureValue>D8laQYx+/Nb1dN1krrWpCQ2C1TGDuqNqWW1eRVvpHZM2A6zFpcBNPC1KUkFdbSm1TVFbtsqQ39tQdG3mOaUEvUT5312FmmGIblsdr5v1nFB2HM2zNJd1ghJaoBvT9+N41Ks8rCKerwZKTpZlXnqDKTPP7RiOxi8f/YQQvletFK4=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>0xmwHbkPDg8w846zs6soZ2wRnjwpRix4KPM5oeEBiJGpHEsN7EKDc1M3oNTxYEWY9EFkuk23SGkXjKb3CJpx99OobX6FJHQzYm77pgCFMHhWD78BRC6YlIFBjfm/K6je68pR6j5TjxNGx5WgXJTGVKYxg+kdRCEh7AC2g2B2zq8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="cba7666c2c783023b82bdfc7d5d6e99ca8972ed443076766e5be06f540dcd315" Description="" Url=""><as:assemblyIdentity name="MadeEasyMF.exe" version="1.0.0.206" publicKeyToken="f9496bddc02908f7" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=PROGRAMMER\HP PC</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>+av0lcaV7fgX3zhkn7SXluEIt3mM1Dml4odi0us6gFw=</DigestValue></Reference></SignedInfo><SignatureValue>ut9N1q1n9lzMzvedzG3SeAuTzFF6pqXLk116n20I4GxfW76JDYKK/gdCgZEPYnMiBPNwltVc4a8+loFHQm4irmn811yvgV1Q5fK1rrB5T8BbdG57L0SEf7911di+D6Plwr5F7XK+ESttXdZZyraBM7FJ67qBixi1iy/mtBUX2Xo=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>0xmwHbkPDg8w846zs6soZ2wRnjwpRix4KPM5oeEBiJGpHEsN7EKDc1M3oNTxYEWY9EFkuk23SGkXjKb3CJpx99OobX6FJHQzYm77pgCFMHhWD78BRC6YlIFBjfm/K6je68pR6j5TjxNGx5WgXJTGVKYxg+kdRCEh7AC2g2B2zq8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB2TCCAUKgAwIBAgIQX2jiWSBSsLdF3nxLx/bLUjANBgkqhkiG9w0BAQsFADArMSkwJwYDVQQDHiAAUABSAE8ARwBSAEEATQBNAEUAUgBcAEgAUAAgAFAAQzAeFw0yMDAyMTgwMTIyMjRaFw0yMTAyMTcwNzIyMjRaMCsxKTAnBgNVBAMeIABQAFIATwBHAFIAQQBNAE0ARQBSAFwASABQACAAUABDMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDTGbAduQ8ODzDzjrOzqyhnbBGePClGLHgo8zmh4QGIkakcSw3sQoNzUzeg1PFgRZj0QWS6TbdIaReMpvcImnH306htfoUkdDNibvumAIUweFYPvwFELpiUgUGN+b8rqN7rylHqPlOPE0bHlaBclMZUpjGD6R1EISHsALaDYHbOrwIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAIW4b2BfxJSn3gVkhaBFIHPzSdjYn/YiwHNMc0KC7taynKTi+rdsLQORVvnrY6ff8f0OVHnD+cNxP3IpaRPPP9JIXzjNEFLSGfLcPXjFUzYRrAETUtYn5Lghh88FPbFmORFzMvPS9N58PmtUdNAerAon1IhkrVRuDfNkjSP/xsTm</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

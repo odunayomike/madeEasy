@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CoverageDateSet" targetNamespace="http://tempuri.org/CoverageDateSet.xsd" xmlns:mstns="http://tempuri.org/CoverageDateSet.xsd" xmlns="http://tempuri.org/CoverageDateSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CoverageDateSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CoverageDateSet" msprop:Generator_UserDSName="CoverageDateSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Coverage" msprop:Generator_TableClassName="CoverageDataTable" msprop:Generator_TableVarName="tableCoverage" msprop:Generator_TablePropName="Coverage" msprop:Generator_RowDeletingName="CoverageRowDeleting" msprop:Generator_RowChangingName="CoverageRowChanging" msprop:Generator_RowEvHandlerName="CoverageRowChangeEventHandler" msprop:Generator_RowDeletedName="CoverageRowDeleted" msprop:Generator_UserTableName="Coverage" msprop:Generator_RowChangedName="CoverageRowChanged" msprop:Generator_RowEvArgName="CoverageRowChangeEvent" msprop:Generator_RowClassName="CoverageRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NoOfCoverage" msprop:Generator_ColumnVarNameInTable="columnNoOfCoverage" msprop:Generator_ColumnPropNameInRow="NoOfCoverage" msprop:Generator_ColumnPropNameInTable="NoOfCoverageColumn" msprop:Generator_UserColumnName="NoOfCoverage" type="xs:string" minOccurs="0" />
+              <xs:element name="NoOfRegistration" msprop:Generator_ColumnVarNameInTable="columnNoOfRegistration" msprop:Generator_ColumnPropNameInRow="NoOfRegistration" msprop:Generator_ColumnPropNameInTable="NoOfRegistrationColumn" msprop:Generator_UserColumnName="NoOfRegistration" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

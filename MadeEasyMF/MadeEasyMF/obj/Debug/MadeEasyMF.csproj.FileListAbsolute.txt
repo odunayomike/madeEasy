@@ -1,0 +1,115 @@
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\SoftlightMFS1.exe.config
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\SoftlightMFS1.exe.manifest
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\SoftlightMFS1.application
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\SoftlightMFS1.exe
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\SoftlightMFS1.pdb
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\DatabaseLibrary.dll
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\DatabaseLibrary.pdb
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\Interop.SpeechLib.dll
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeEasyMF.csproj.ResolveComReference.cache
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.AccountSetup.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.AccountStatement.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.BalanceLoan.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.BulkTransaction.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.CodeGenerator.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.CustomerRegistration.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Dashboard.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Delete.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Department.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Disbursement.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.DisbursementDetails.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.EditTransaction.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Employee.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Freeze.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Group.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Guarantor.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.GuarantorDetails.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Home.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Login.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Notification.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.OTP.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Properties.Resources.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Report.ReportForm.AccountStatementReportForm.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.ReportView.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Settings.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.UserLogin.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeEasyMF.csproj.GenerateResource.Cache
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMFS1.exe.manifest
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMFS1.application
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMFS1.exe
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMFS1.pdb
+F:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\SoftlightMFS1.exe.config
+F:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\Interop.SpeechLib.dll
+F:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeEasyMF.csproj.ResolveComReference.cache
+F:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMFS1.exe
+F:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMFS1.pdb
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeEasyMF.csprojResolveAssemblyReference.cache
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Support.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Feedback.resources
+C:\Users\MIKE BANKS\Documents\Visual Studio 2013\Projects\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.News.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\Interop.SpeechLib.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeEasyMF.csproj.ResolveComReference.cache
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\DatabaseLibrary.pdb
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.AccountStatement.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.BalanceLoan.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.BulkTransaction.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.CustomerRegistration.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Delete.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Department.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Disbursement.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.DisbursementDetails.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.EditTransaction.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Employee.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Feedback.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Freeze.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Group.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Guarantor.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.GuarantorDetails.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Home.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Login.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.News.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Notification.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.OTP.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Properties.Resources.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Report.ReportForm.AccountStatementReportForm.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.ReportView.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Settings.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Support.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.UserLogin.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeEasyMF.csproj.GenerateResource.Cache
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Expenditure.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.Threshold.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightMF.TransactionApproval.resources
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\SoftlightCBS.exe.config
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\SoftlightCBS.exe.manifest
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\SoftlightCBS.application
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\SoftlightCBS.exe
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\SoftlightCBS.pdb
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightCBS.exe.manifest
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightCBS.application
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightCBS.exe
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightCBS.pdb
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\DatabaseLibrary.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\AxShockwaveFlashObjects.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\stdole.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeEasyMF.csproj.AssemblyReference.cache
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeEasyMF.csproj.SuggestedBindingRedirects.cache
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeEasyMF.csproj.CoreCompileInputs.cache
+C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeEasyMF.csproj.CopyComplete
