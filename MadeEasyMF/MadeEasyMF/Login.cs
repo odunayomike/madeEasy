@@ -96,11 +96,30 @@ namespace SoftlightMF
                 string cloudMessage = null, maintenanceMsg = null;
                 user = txtUser.Text;
                 pass = txtPass.Text;
-                db.connect();
-                db.getLogQuery(user, pass);
-                db.getConnection.Close();
-                tb = new DataTable();
-                db.getDataAdapter.Fill(tb);
+                
+                try
+                {
+                    MessageBox.Show("Step 1: Attempting to connect to database...", "Debug");
+                    db.connect();
+                    MessageBox.Show("Step 2: Connection successful, calling getLogQuery...", "Debug");
+                    db.getLogQuery(user, pass);
+                    MessageBox.Show("Step 3: getLogQuery called, closing connection...", "Debug");
+                    db.getConnection.Close();
+                    MessageBox.Show("Step 4: Creating DataTable and filling...", "Debug");
+                    tb = new DataTable();
+                    db.getDataAdapter.Fill(tb);
+                    MessageBox.Show("Step 5: DataTable filled successfully", "Debug");
+                }
+                catch (SqlException sqlEx)
+                {
+                    MessageBox.Show($"SQL Error in login query:\nNumber: {sqlEx.Number}\nMessage: {sqlEx.Message}\nProcedure: {sqlEx.Procedure}", "Login SQL Error");
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"General Error in login query: {ex.Message}\nStack: {ex.StackTrace}", "Login General Error");
+                    return;
+                }
 
                 db.connect();
                 db.getSub(clientID);
