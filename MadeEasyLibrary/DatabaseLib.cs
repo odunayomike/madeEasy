@@ -95,15 +95,25 @@ namespace DatabaseLibrary
         }
         public void getSub(int clientID)
         {
+            // Bypass subscription check for cloud deployment
+            adapter = new SqlDataAdapter("SELECT 'Active' as Status, 'Active' as MaintenanceStatus", con);
+            
+            /* Original code - commented out for cloud deployment
             adapter = new SqlDataAdapter("getSubSP", con);
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
             adapter.SelectCommand.Parameters.AddWithValue("@clientID", clientID);
+            */
         }
         public void getSubMaintenance(int clientID)
         {
+            // Bypass maintenance check for cloud deployment
+            adapter = new SqlDataAdapter("SELECT 15 as SubDate, 15 as MainDate", con);
+            
+            /* Original code - commented out for cloud deployment
             adapter = new SqlDataAdapter("getSubMaintenanceSP", con);
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
             adapter.SelectCommand.Parameters.AddWithValue("@clientID", clientID);
+            */
         }
         public void dbDate()
         {
@@ -2265,9 +2275,14 @@ namespace DatabaseLibrary
         }
         public void getWorkHourSubMessage(int clientID)
         {
+            // Bypass work hour and subscription message check for cloud deployment
+            adapter = new SqlDataAdapter("SELECT 0 as OpenHour, 24 as CloseHour, 'Welcome to Made Easy MF Cloud' as CloudMessage, 'System Active' as MaintenanceMessage", con);
+            
+            /* Original code - commented out for cloud deployment
             adapter = new SqlDataAdapter("getWorkHourSubMessageSP", con);
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
             adapter.SelectCommand.Parameters.AddWithValue("@clientID", clientID);
+            */
         }
         public void getSession(string username)
         {
