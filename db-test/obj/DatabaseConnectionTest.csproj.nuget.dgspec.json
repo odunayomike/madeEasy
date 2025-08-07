@@ -1,31 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/user/madeEasy/db-test/DatabaseConnectionTest.csproj": {}
+    "C:\\Users\\tunex\\source\\repos\\madeEasy\\db-test\\DatabaseConnectionTest.csproj": {}
   },
   "projects": {
-    "/Users/user/madeEasy/db-test/DatabaseConnectionTest.csproj": {
+    "C:\\Users\\tunex\\source\\repos\\madeEasy\\db-test\\DatabaseConnectionTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/user/madeEasy/db-test/DatabaseConnectionTest.csproj",
+        "projectUniqueName": "C:\\Users\\tunex\\source\\repos\\madeEasy\\db-test\\DatabaseConnectionTest.csproj",
         "projectName": "DatabaseConnectionTest",
-        "projectPath": "/Users/user/madeEasy/db-test/DatabaseConnectionTest.csproj",
-        "packagesPath": "/Users/user/.nuget/packages/",
-        "outputPath": "/Users/user/madeEasy/db-test/obj/",
+        "projectPath": "C:\\Users\\tunex\\source\\repos\\madeEasy\\db-test\\DatabaseConnectionTest.csproj",
+        "packagesPath": "C:\\Users\\tunex\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tunex\\source\\repos\\madeEasy\\db-test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/user/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\tunex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net7.0"
         ],
         "sources": {
-          "/usr/local/Cellar/dotnet/9.0.7/libexec/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -33,17 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.Data.SqlClient": {
               "target": "Package",
@@ -66,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/9.0.7/libexec/sdk/9.0.108/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

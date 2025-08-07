@@ -259,18 +259,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="log4net.dll" size="241664">
-      <assemblyIdentity name="log4net" version="1.2.10.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="x86" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>fxX0zhjf9RoTk+geEgn/61lBHJANtqASSozsCs5r4LE=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ShockwaveFlashObjects.dll" size="23040">
       <assemblyIdentity name="ShockwaveFlashObjects" version="1.0.0.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -283,14 +271,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SoftlightCBS.exe" size="1860608">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SoftlightCBS.exe" size="1861632">
       <assemblyIdentity name="SoftlightCBS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CgeiM2IEuUjF1oNKQTyS8BJnerVgYPBunczmTp8ubAY=</dsig:DigestValue>
+        <dsig:DigestValue>4dC9kEBAzZn5TqNSiXi+bUSDC1/nSExpbQ9kYBSYLGg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -315,13 +303,13 @@
       <dsig:DigestValue>+Sq7PcxwHItOePKZaHgcO21olr4wgpgBsnjO1+iLr9M=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="SoftlightCBS.exe.config" size="684">
+  <file name="SoftlightCBS.exe.config" size="713">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>noaFMhdlcn+0WjaWA1ChCBH0/+KmF1agBwUXLGyqUO0=</dsig:DigestValue>
+      <dsig:DigestValue>5AzyPGutnMpLwIIhxqnDknewt1iQ9rCI3Mv/aQCZlXE=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

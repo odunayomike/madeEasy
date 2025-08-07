@@ -24,6 +24,7 @@ namespace SoftlightMF
             subStatus, mainStatus, comUser, comPass, firstName, notification;
         private int duration, count = 3, branchCode;//Vault implementation
         private int subDate, mainDate, clientID;
+        private string lastUsername = ""; // Track username for attempt counter reset
         SpVoice speech = new SpVoice();
         public Login()
         {
@@ -97,18 +98,20 @@ namespace SoftlightMF
                 user = txtUser.Text;
                 pass = txtPass.Text;
                 
+                // Reset attempt counter if username changed
+                if (!user.Equals(lastUsername))
+                {
+                    count = 3;
+                    lastUsername = user;
+                }
+                
                 try
                 {
-                    MessageBox.Show("Step 1: Attempting to connect to database...", "Debug");
                     db.connect();
-                    MessageBox.Show("Step 2: Connection successful, calling getLogQuery...", "Debug");
                     db.getLogQuery(user, pass);
-                    MessageBox.Show("Step 3: getLogQuery called, closing connection...", "Debug");
                     db.getConnection.Close();
-                    MessageBox.Show("Step 4: Creating DataTable and filling...", "Debug");
                     tb = new DataTable();
                     db.getDataAdapter.Fill(tb);
-                    MessageBox.Show("Step 5: DataTable filled successfully", "Debug");
                 }
                 catch (SqlException sqlEx)
                 {
@@ -121,14 +124,24 @@ namespace SoftlightMF
                     return;
                 }
 
-                db.connect();
-                db.getSub(clientID);
-                db.getConnection.Close();
-                DataTable sub = new DataTable();
-                db.getDataAdapter.Fill(sub);
+                try
+                {
+                    db.connect();
+                    db.getSub(clientID);
+                    db.getConnection.Close();
+                    DataTable sub = new DataTable();
+                    db.getDataAdapter.Fill(sub);
+                    
+                    subStatus = sub.Rows[0]["Status"].ToString();
+                    mainStatus = sub.Rows[0]["MaintenanceStatus"].ToString();
+                }
+                catch (Exception getSub_ex)
+                {
+                    // Use default values if getSub fails
+                    subStatus = "Active";
+                    mainStatus = "Active";
+                }
                 
-                subStatus = sub.Rows[0]["Status"].ToString();
-                mainStatus = sub.Rows[0]["MaintenanceStatus"].ToString();
                 comUser = tb.Rows[0]["Username"].ToString();
                 comPass = tb.Rows[0]["Password"].ToString();
                 firstName = tb.Rows[0]["FirstName"].ToString();
@@ -148,6 +161,7 @@ namespace SoftlightMF
                 }
                 else
                 {
+                    
                     if ((user.Equals(comUser)) && (pass.Equals(comPass)))
                     {
                         if (!notification.Equals("0"))

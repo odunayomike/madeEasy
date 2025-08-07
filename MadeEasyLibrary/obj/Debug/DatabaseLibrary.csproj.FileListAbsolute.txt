@@ -45,3 +45,5 @@ C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyLibrary\obj\Debug\DatabaseLib
 C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyLibrary\obj\Debug\DatabaseLibrary.pdb
 C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyLibrary\obj\Debug\DatabaseLibrary.csproj.AssemblyReference.cache
 C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyLibrary\obj\Debug\DatabaseLibrary.csproj.CoreCompileInputs.cache
+C:\Users\tunex\source\repos\madeEasy\MadeEasyLibrary\obj\Debug\DatabaseLibrary.dll
+C:\Users\tunex\source\repos\madeEasy\MadeEasyLibrary\obj\Debug\DatabaseLibrary.pdb
