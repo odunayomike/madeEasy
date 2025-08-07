@@ -113,3 +113,5 @@ C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeE
 C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeEasyMF.csproj.SuggestedBindingRedirects.cache
 C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeEasyMF.csproj.CoreCompileInputs.cache
 C:\Users\MIKE BANKS\source\repos\Made Easy\MadeEasyMF\MadeEasyMF\obj\Debug\MadeEasyMF.csproj.CopyComplete
+C:\Users\tunex\source\repos\madeEasy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightCBS.exe
+C:\Users\tunex\source\repos\madeEasy\MadeEasyMF\MadeEasyMF\obj\Debug\SoftlightCBS.pdb

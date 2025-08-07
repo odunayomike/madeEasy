@@ -32,7 +32,15 @@ namespace DatabaseLibrary
             }
             catch (ArgumentException e)
             {
-
+                throw new Exception($"Database connection string error: {e.Message}", e);
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new Exception($"SQL Server connection error: {sqlEx.Message} (Error {sqlEx.Number})", sqlEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Database connection failed: {ex.Message}", ex);
             }
         }
         //Demo testing
