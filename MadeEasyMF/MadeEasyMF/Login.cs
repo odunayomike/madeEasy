@@ -50,11 +50,6 @@ namespace SoftlightMF
         }
         private int getClientID()
         {
-            // Temporary fix: Return default client ID for cloud deployment
-            // This bypasses the Client table lookup until proper licensing table is set up
-            return 1;
-            
-            /* Original code - commented out for cloud deployment
             int clientID = 0;
             try
             {
@@ -70,7 +65,6 @@ namespace SoftlightMF
                 clientID = 0;
             }
             return clientID;
-            */
         }
         public int generateCode()
         {
