@@ -27,7 +27,15 @@ namespace SoftlightMF
         SpVoice speech = new SpVoice();
         public Login()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                // Bypass any database initialization errors
+                MessageBox.Show("Bypassing initialization error: " + ex.Message, "Info");
+            }
         }
         public void logFile(string username, string status)
         {
