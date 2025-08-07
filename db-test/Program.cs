@@ -39,7 +39,7 @@ namespace DatabaseConnectionTest
 
                     // Test if we can see some tables
                     Console.WriteLine("\nChecking available tables...");
-                    using (SqlCommand command = new SqlCommand("SELECT TOP 5 TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'", connection))
+                    using (SqlCommand command = new SqlCommand("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' ORDER BY TABLE_NAME", connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
