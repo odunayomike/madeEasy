@@ -1966,9 +1966,15 @@ namespace DatabaseLibrary
         }
         public void getClientID(string name)
         {
+            // Use direct query instead of stored procedure for cloud deployment
+            adapter = new SqlDataAdapter("SELECT ClientID FROM Client WHERE ClientName = @name", con);
+            adapter.SelectCommand.Parameters.AddWithValue("@name", name);
+            
+            /* Original stored procedure call - commented out for cloud deployment
             adapter = new SqlDataAdapter("getClientIDSP", con);
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
             adapter.SelectCommand.Parameters.AddWithValue("@name", name);
+            */
         }
         public void insertSupport(int clientID, int ticketNumber, string username, string subject, string message)
         {
