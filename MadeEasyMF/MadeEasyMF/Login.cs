@@ -456,8 +456,18 @@ namespace SoftlightMF
 
         private void Login_Load(object sender, EventArgs e)
         {
-            ExposeProperties.ClientID = getClientID();
-            clientID = getClientID();
+            try
+            {
+                ExposeProperties.ClientID = getClientID();
+                clientID = getClientID();
+            }
+            catch (Exception ex)
+            {
+                // Handle any database errors during login initialization
+                ExposeProperties.ClientID = 1;
+                clientID = 1;
+                System.Windows.Forms.MessageBox.Show("Database initialization warning: " + ex.Message + "\nUsing default client ID.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

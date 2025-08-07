@@ -1956,9 +1956,15 @@ namespace DatabaseLibrary
         }
         public void getClientID(string name)
         {
+            // Temporary fix: Skip the stored procedure call for cloud deployment
+            // Return empty adapter to prevent Client table lookup
+            adapter = new SqlDataAdapter("SELECT 1 as ClientID", con);
+            
+            /* Original code - commented out for cloud deployment
             adapter = new SqlDataAdapter("getClientIDSP", con);
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
             adapter.SelectCommand.Parameters.AddWithValue("@name", name);
+            */
         }
         public void insertSupport(int clientID, int ticketNumber, string username, string subject, string message)
         {
