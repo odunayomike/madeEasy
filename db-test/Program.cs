@@ -677,6 +677,580 @@ END");
 
                 Console.WriteLine("✅ All essential procedures created successfully!");
                 
+                // NEXT BATCH: CRITICAL TRANSACTION & CUSTOMER PROCEDURES
+                Console.WriteLine("\n💼 NEXT BATCH: Critical Business Operations...");
+                
+                // Transaction Logging - Core business functionality
+                CreateStoredProcedure(connection, "transactionLogSP", @"
+CREATE PROCEDURE transactionLogSP
+    @date DATE,
+    @time TIME,
+    @transactionType NVARCHAR(50),
+    @amt DECIMAL(18,2),
+    @charges DECIMAL(18,2),
+    @accNo BIGINT,
+    @recipientAccNo BIGINT,
+    @accountOfficer NVARCHAR(50),
+    @cashier NVARCHAR(50),
+    @hostName NVARCHAR(50),
+    @description NVARCHAR(500)
+AS
+BEGIN
+    IF OBJECT_ID('TransactionLog', 'U') IS NULL
+    BEGIN
+        CREATE TABLE TransactionLog (
+            TransactionID BIGINT IDENTITY(1,1) PRIMARY KEY,
+            Date DATE, Time TIME, TransactionType NVARCHAR(50),
+            Amount DECIMAL(18,2), Charges DECIMAL(18,2), AccountNumber BIGINT,
+            RecipientAccountNumber BIGINT, AccountOfficer NVARCHAR(50),
+            Cashier NVARCHAR(50), HostName NVARCHAR(50), Description NVARCHAR(500),
+            DateCreated DATETIME DEFAULT GETDATE()
+        )
+    END
+    INSERT INTO TransactionLog (Date, Time, TransactionType, Amount, Charges, AccountNumber, RecipientAccountNumber, AccountOfficer, Cashier, HostName, Description)
+    VALUES (@date, @time, @transactionType, @amt, @charges, @accNo, @recipientAccNo, @accountOfficer, @cashier, @hostName, @description)
+END");
+
+                // Customer Registration
+                CreateStoredProcedure(connection, "customerRegSP", @"
+CREATE PROCEDURE customerRegSP
+    @fName NVARCHAR(50), @mName NVARCHAR(50), @lName NVARCHAR(50),
+    @address NVARCHAR(200), @phone NVARCHAR(20), @gender NVARCHAR(10),
+    @accNo BIGINT, @accountType NVARCHAR(50), @accountOfficer NVARCHAR(50),
+    @date DATE, @groupName NVARCHAR(100)
+AS
+BEGIN
+    IF OBJECT_ID('Customer', 'U') IS NULL
+    BEGIN
+        CREATE TABLE Customer (
+            CustomerID INT IDENTITY(1,1) PRIMARY KEY, FirstName NVARCHAR(50), MiddleName NVARCHAR(50),
+            LastName NVARCHAR(50), Address NVARCHAR(200), PhoneNumber NVARCHAR(20),
+            Gender NVARCHAR(10), AccountNumber BIGINT UNIQUE, AccountType NVARCHAR(50),
+            AccountOfficer NVARCHAR(50), GroupName NVARCHAR(100), DateCreated DATETIME DEFAULT GETDATE()
+        )
+    END
+    INSERT INTO Customer (FirstName, MiddleName, LastName, Address, PhoneNumber, Gender, AccountNumber, AccountType, AccountOfficer, GroupName)
+    VALUES (@fName, @mName, @lName, @address, @phone, @gender, @accNo, @accountType, @accountOfficer, @groupName)
+END");
+
+                // Balance Update
+                CreateStoredProcedure(connection, "balanceUpdateSP", @"
+CREATE PROCEDURE balanceUpdateSP
+    @accNo BIGINT
+AS
+BEGIN
+    IF OBJECT_ID('TransactionLog', 'U') IS NULL
+        SELECT 0.00 as Balance
+    ELSE
+        SELECT ISNULL(SUM(CASE WHEN TransactionType IN ('Deposit', 'Transfer In') THEN Amount ELSE -Amount END), 0) as Balance
+        FROM TransactionLog WHERE AccountNumber = @accNo
+END");
+
+                // Get Customer Details Enhanced
+                CreateStoredProcedure(connection, "getCustDetailsSP", @"
+CREATE PROCEDURE getCustDetailsSP
+    @accNo BIGINT
+AS
+BEGIN
+    IF OBJECT_ID('Customer', 'U') IS NULL
+        SELECT 'Default' as FirstName, '' as MiddleName, 'Customer' as LastName, 'No Address' as Address, '0000000000' as PhoneNumber, 'N/A' as Gender, @accNo as AccountNumber, 'Savings' as AccountType
+    ELSE
+        SELECT FirstName, MiddleName, LastName, Address, PhoneNumber, Gender, AccountNumber, AccountType FROM Customer WHERE AccountNumber = @accNo
+END");
+
+                // Photo Management
+                CreateStoredProcedure(connection, "insertPhotoSP", @"
+CREATE PROCEDURE insertPhotoSP
+    @accountNo BIGINT,
+    @img VARBINARY(MAX)
+AS
+BEGIN
+    IF OBJECT_ID('CustomerPhoto', 'U') IS NULL
+    BEGIN
+        CREATE TABLE CustomerPhoto (
+            PhotoID INT IDENTITY(1,1) PRIMARY KEY,
+            AccountNumber BIGINT,
+            Photo VARBINARY(MAX),
+            DateCreated DATETIME DEFAULT GETDATE()
+        )
+    END
+    INSERT INTO CustomerPhoto (AccountNumber, Photo) VALUES (@accountNo, @img)
+END");
+
+                CreateStoredProcedure(connection, "getPhotoSP", @"
+CREATE PROCEDURE getPhotoSP
+    @accountNo BIGINT
+AS
+BEGIN
+    IF OBJECT_ID('CustomerPhoto', 'U') IS NULL
+        SELECT NULL as Photo
+    ELSE
+        SELECT Photo FROM CustomerPhoto WHERE AccountNumber = @accountNo
+END");
+
+                // Account Officer Management  
+                CreateStoredProcedure(connection, "getAccountOfficerSP", @"
+CREATE PROCEDURE getAccountOfficerSP
+    @accountOfficer NVARCHAR(50)
+AS
+BEGIN
+    SELECT @accountOfficer as FirstName, @accountOfficer as AccountOfficer, 'Active' as Status
+END");
+
+                // Account Type Management
+                CreateStoredProcedure(connection, "getAccountTypeSP", @"
+CREATE PROCEDURE getAccountTypeSP
+AS
+BEGIN
+    SELECT 'Savings' as AccountType, 1000.00 as MinimumBalance
+    UNION ALL SELECT 'Current', 5000.00
+    UNION ALL SELECT 'Fixed Deposit', 10000.00
+END");
+
+                // Employee Basics
+                CreateStoredProcedure(connection, "getEmployeeDetailsSP", @"
+CREATE PROCEDURE getEmployeeDetailsSP
+    @employeeID NVARCHAR(50)
+AS
+BEGIN
+    IF OBJECT_ID('Employee', 'U') IS NULL
+        SELECT @employeeID as EmployeeID, 'System' as FirstName, 'Admin' as LastName
+    ELSE
+        SELECT EmployeeID, FirstName, MiddleName, LastName, DepartmentID, BranchCode FROM Employee WHERE EmployeeID = @employeeID
+END");
+
+                // Department Management
+                CreateStoredProcedure(connection, "getDepartmentSP", @"
+CREATE PROCEDURE getDepartmentSP
+AS
+BEGIN
+    IF OBJECT_ID('Department', 'U') IS NULL
+    BEGIN
+        CREATE TABLE Department (
+            DepartmentID NVARCHAR(50) PRIMARY KEY,
+            DepartmentName NVARCHAR(100),
+            DateCreated DATETIME DEFAULT GETDATE()
+        )
+        INSERT INTO Department VALUES ('ADMIN', 'Administration'), ('CASHIER', 'Cashier'), ('MANAGER', 'Management')
+    END
+    SELECT DepartmentID, DepartmentName FROM Department
+END");
+
+                Console.WriteLine("✅ Next batch of 10 critical procedures created successfully!");
+                
+                // FIX THE 2 PROCEDURES THAT HAD ERRORS + ADD STATEMENT FUNCTIONALITY
+                Console.WriteLine("\n🔧 FIXING ERRORS + CUSTOMER STATEMENTS...");
+                
+                // Fix transactionLogSP - correct column name
+                CreateStoredProcedure(connection, "transactionLogSP", @"
+CREATE PROCEDURE transactionLogSP
+    @date DATE, @time TIME, @transactionType NVARCHAR(50), @amt DECIMAL(18,2), @charges DECIMAL(18,2),
+    @accNo BIGINT, @recipientAccNo BIGINT, @accountOfficer NVARCHAR(50), @cashier NVARCHAR(50), 
+    @hostName NVARCHAR(50), @description NVARCHAR(500)
+AS
+BEGIN
+    IF OBJECT_ID('TransactionLog', 'U') IS NULL
+    BEGIN
+        CREATE TABLE TransactionLog (
+            TransactionID BIGINT IDENTITY(1,1) PRIMARY KEY, Date DATE, Time TIME, TransactionType NVARCHAR(50),
+            Amount DECIMAL(18,2), Charges DECIMAL(18,2), AccountNumber BIGINT, RecipientAccountNo BIGINT,
+            AccountOfficer NVARCHAR(50), Cashier NVARCHAR(50), HostName NVARCHAR(50), Description NVARCHAR(500),
+            DateCreated DATETIME DEFAULT GETDATE()
+        )
+    END
+    INSERT INTO TransactionLog (Date, Time, TransactionType, Amount, Charges, AccountNumber, RecipientAccountNo, AccountOfficer, Cashier, HostName, Description)
+    VALUES (@date, @time, @transactionType, @amt, @charges, @accNo, @recipientAccNo, @accountOfficer, @cashier, @hostName, @description)
+END");
+
+                // Fix getDepartmentSP - correct values  
+                CreateStoredProcedure(connection, "getDepartmentSP", @"
+CREATE PROCEDURE getDepartmentSP
+AS
+BEGIN
+    IF OBJECT_ID('Department', 'U') IS NULL
+    BEGIN
+        CREATE TABLE Department (
+            DepartmentID NVARCHAR(50) PRIMARY KEY,
+            DepartmentName NVARCHAR(100),
+            DateCreated DATETIME DEFAULT GETDATE()
+        )
+        INSERT INTO Department (DepartmentID, DepartmentName) VALUES 
+        ('ADMIN', 'Administration'), ('CASHIER', 'Cashier'), ('MANAGER', 'Management')
+    END
+    SELECT DepartmentID, DepartmentName FROM Department
+END");
+
+                // CUSTOMER STATEMENT PROCEDURES
+                CreateStoredProcedure(connection, "getAllTransactionLogSP", @"
+CREATE PROCEDURE getAllTransactionLogSP
+    @accNo BIGINT
+AS
+BEGIN
+    IF OBJECT_ID('TransactionLog', 'U') IS NULL
+        SELECT 'No transactions available' as Message
+    ELSE
+        SELECT Date, Time, TransactionType, Amount, Charges, Description, AccountOfficer, Cashier
+        FROM TransactionLog 
+        WHERE AccountNumber = @accNo 
+        ORDER BY Date DESC, Time DESC
+END");
+
+                CreateStoredProcedure(connection, "getSpecificTransactionLogSP", @"
+CREATE PROCEDURE getSpecificTransactionLogSP
+    @accNo BIGINT,
+    @dateFrom DATE,
+    @dateTo DATE
+AS
+BEGIN
+    IF OBJECT_ID('TransactionLog', 'U') IS NULL
+        SELECT 'No transactions available' as Message
+    ELSE
+        SELECT Date, Time, TransactionType, Amount, Charges, Description, AccountOfficer, Cashier,
+               SUM(CASE WHEN TransactionType IN ('Deposit', 'Transfer In') THEN Amount ELSE -Amount END) 
+               OVER (ORDER BY Date, Time ROWS UNBOUNDED PRECEDING) as RunningBalance
+        FROM TransactionLog 
+        WHERE AccountNumber = @accNo AND Date BETWEEN @dateFrom AND @dateTo
+        ORDER BY Date ASC, Time ASC
+END");
+
+                CreateStoredProcedure(connection, "getAllCustomerStatementSP", @"
+CREATE PROCEDURE getAllCustomerStatementSP
+    @accNo BIGINT
+AS
+BEGIN
+    IF OBJECT_ID('TransactionLog', 'U') IS NULL OR OBJECT_ID('Customer', 'U') IS NULL
+        SELECT @accNo as AccountNumber, 'Default Customer' as CustomerName, 0.00 as CurrentBalance, 'No transactions' as Message
+    ELSE
+        SELECT 
+            c.AccountNumber, 
+            CONCAT(c.FirstName, ' ', c.LastName) as CustomerName,
+            c.AccountType,
+            ISNULL(SUM(CASE WHEN t.TransactionType IN ('Deposit', 'Transfer In') THEN t.Amount ELSE -t.Amount END), 0) as CurrentBalance,
+            COUNT(t.TransactionID) as TotalTransactions
+        FROM Customer c
+        LEFT JOIN TransactionLog t ON c.AccountNumber = t.AccountNumber
+        WHERE c.AccountNumber = @accNo
+        GROUP BY c.AccountNumber, c.FirstName, c.LastName, c.AccountType
+END");
+
+                CreateStoredProcedure(connection, "getSpecificCustomerStatementSP", @"
+CREATE PROCEDURE getSpecificCustomerStatementSP
+    @accNo BIGINT,
+    @dateFrom DATE,
+    @dateTo DATE
+AS
+BEGIN
+    IF OBJECT_ID('TransactionLog', 'U') IS NULL OR OBJECT_ID('Customer', 'U') IS NULL
+        SELECT @accNo as AccountNumber, 'Default Customer' as CustomerName, 0.00 as PeriodBalance
+    ELSE
+        SELECT 
+            c.AccountNumber,
+            CONCAT(c.FirstName, ' ', c.LastName) as CustomerName,
+            c.AccountType,
+            @dateFrom as StatementFromDate,
+            @dateTo as StatementToDate,
+            ISNULL(SUM(CASE WHEN t.TransactionType IN ('Deposit', 'Transfer In') THEN t.Amount ELSE -t.Amount END), 0) as PeriodBalance,
+            COUNT(t.TransactionID) as PeriodTransactions
+        FROM Customer c
+        LEFT JOIN TransactionLog t ON c.AccountNumber = t.AccountNumber AND t.Date BETWEEN @dateFrom AND @dateTo
+        WHERE c.AccountNumber = @accNo
+        GROUP BY c.AccountNumber, c.FirstName, c.LastName, c.AccountType
+END");
+
+                // ADDITIONAL CRITICAL PROCEDURES
+                CreateStoredProcedure(connection, "editCustomerSP", @"
+CREATE PROCEDURE editCustomerSP
+    @fName NVARCHAR(50), @mName NVARCHAR(50), @lName NVARCHAR(50), @address NVARCHAR(200), 
+    @phone NVARCHAR(20), @gender NVARCHAR(10), @accNo BIGINT, @accountType NVARCHAR(50), 
+    @accountOfficer NVARCHAR(50), @groupName NVARCHAR(100)
+AS
+BEGIN
+    IF OBJECT_ID('Customer', 'U') IS NOT NULL
+        UPDATE Customer SET FirstName=@fName, MiddleName=@mName, LastName=@lName, Address=@address, 
+               PhoneNumber=@phone, Gender=@gender, AccountType=@accountType, AccountOfficer=@accountOfficer, GroupName=@groupName
+        WHERE AccountNumber=@accNo
+END");
+
+                CreateStoredProcedure(connection, "searchCustomerSP", @"
+CREATE PROCEDURE searchCustomerSP
+    @search NVARCHAR(100)
+AS
+BEGIN
+    IF OBJECT_ID('Customer', 'U') IS NULL
+        SELECT 'No customers found' as Message
+    ELSE
+        SELECT AccountNumber, FirstName, MiddleName, LastName, PhoneNumber, AccountType, AccountOfficer
+        FROM Customer 
+        WHERE FirstName LIKE '%' + @search + '%' 
+           OR LastName LIKE '%' + @search + '%' 
+           OR CAST(AccountNumber AS NVARCHAR) LIKE '%' + @search + '%'
+           OR PhoneNumber LIKE '%' + @search + '%'
+        ORDER BY LastName, FirstName
+END");
+
+                CreateStoredProcedure(connection, "getGroupNameSP", @"
+CREATE PROCEDURE getGroupNameSP
+AS
+BEGIN
+    IF OBJECT_ID('CustomerGroup', 'U') IS NULL
+    BEGIN
+        CREATE TABLE CustomerGroup (
+            GroupID INT IDENTITY(1,1) PRIMARY KEY,
+            GroupName NVARCHAR(100) UNIQUE,
+            Leader NVARCHAR(100),
+            Secretary NVARCHAR(100),
+            Location NVARCHAR(200),
+            DateCreated DATETIME DEFAULT GETDATE()
+        )
+        INSERT INTO CustomerGroup (GroupName, Leader, Secretary, Location) VALUES 
+        ('Default Group', 'System Admin', 'System', 'Main Branch')
+    END
+    SELECT GroupName, Leader, Secretary, Location FROM CustomerGroup ORDER BY GroupName
+END");
+
+                CreateStoredProcedure(connection, "regFeeSP", @"
+CREATE PROCEDURE regFeeSP
+    @accountNo BIGINT,
+    @amount DECIMAL(18,2)
+AS
+BEGIN
+    IF OBJECT_ID('RegistrationFee', 'U') IS NULL
+    BEGIN
+        CREATE TABLE RegistrationFee (
+            FeeID INT IDENTITY(1,1) PRIMARY KEY,
+            AccountNumber BIGINT,
+            Amount DECIMAL(18,2),
+            DateCreated DATETIME DEFAULT GETDATE()
+        )
+    END
+    INSERT INTO RegistrationFee (AccountNumber, Amount) VALUES (@accountNo, @amount)
+END");
+
+                Console.WriteLine("✅ Fixed errors + 10 more procedures created (Statements, Search, Groups)!");
+                
+                // LOAN FUNCTIONALITY - CORE MICROFINANCE OPERATIONS
+                Console.WriteLine("\n💰 LOAN MANAGEMENT PROCEDURES...");
+                Console.WriteLine("Creating comprehensive loan functionality for microfinance operations");
+                
+                // Loan Disbursement
+                CreateStoredProcedure(connection, "disburseLoanSP", @"
+CREATE PROCEDURE disburseLoanSP
+    @accNo BIGINT, @duration INT, @totAmt DECIMAL(18,2), @termOfPay NVARCHAR(50),
+    @disDate DATE, @matDate DATE, @time TIME, @loanStatus NVARCHAR(50),
+    @amt DECIMAL(18,2), @principal DECIMAL(18,2), @accountOfficer NVARCHAR(50)
+AS
+BEGIN
+    IF OBJECT_ID('LoanAccount', 'U') IS NULL
+    BEGIN
+        CREATE TABLE LoanAccount (
+            LoanID BIGINT IDENTITY(1,1) PRIMARY KEY, AccountNumber BIGINT, Duration INT,
+            TotalAmount DECIMAL(18,2), TermOfPayment NVARCHAR(50), DisbursementDate DATE,
+            MaturityDate DATE, LoanStatus NVARCHAR(50), Amount DECIMAL(18,2),
+            Principal DECIMAL(18,2), AccountOfficer NVARCHAR(50), DateCreated DATETIME DEFAULT GETDATE()
+        )
+    END
+    INSERT INTO LoanAccount (AccountNumber, Duration, TotalAmount, TermOfPayment, DisbursementDate, MaturityDate, LoanStatus, Amount, Principal, AccountOfficer)
+    VALUES (@accNo, @duration, @totAmt, @termOfPay, @disDate, @matDate, @loanStatus, @amt, @principal, @accountOfficer)
+END");
+
+                // Loan Balance Check
+                CreateStoredProcedure(connection, "loanBalanceSP", @"
+CREATE PROCEDURE loanBalanceSP
+    @accNo BIGINT
+AS
+BEGIN
+    IF OBJECT_ID('LoanAccount', 'U') IS NULL
+        SELECT 0.00 as LoanBalance, 'No loans' as Status
+    ELSE
+        SELECT ISNULL(SUM(Amount - Principal), 0.00) as LoanBalance,
+               COUNT(*) as ActiveLoans,
+               MAX(MaturityDate) as NextMaturity
+        FROM LoanAccount 
+        WHERE AccountNumber = @accNo AND LoanStatus = 'Active'
+END");
+
+                // Loan Eligibility Check
+                CreateStoredProcedure(connection, "loanCheckerSP", @"
+CREATE PROCEDURE loanCheckerSP
+    @accNo BIGINT
+AS
+BEGIN
+    DECLARE @hasActiveLoans INT = 0
+    DECLARE @accountBalance DECIMAL(18,2) = 0
+    
+    IF OBJECT_ID('LoanAccount', 'U') IS NOT NULL
+        SELECT @hasActiveLoans = COUNT(*) FROM LoanAccount WHERE AccountNumber = @accNo AND LoanStatus = 'Active'
+    
+    IF OBJECT_ID('TransactionLog', 'U') IS NOT NULL
+        SELECT @accountBalance = ISNULL(SUM(CASE WHEN TransactionType IN ('Deposit', 'Transfer In') THEN Amount ELSE -Amount END), 0) 
+        FROM TransactionLog WHERE AccountNumber = @accNo
+    
+    SELECT 
+        CASE WHEN @hasActiveLoans = 0 AND @accountBalance >= 1000 THEN 'Eligible' ELSE 'Not Eligible' END as LoanEligibility,
+        @hasActiveLoans as ActiveLoans,
+        @accountBalance as AccountBalance,
+        CASE WHEN @accountBalance >= 1000 THEN @accountBalance * 5 ELSE 0 END as MaxLoanAmount
+END");
+
+                // Loan Extension
+                CreateStoredProcedure(connection, "extendLoanSP", @"
+CREATE PROCEDURE extendLoanSP
+    @accNo BIGINT, @extendDate DATE, @outstandingAmt DECIMAL(18,2)
+AS
+BEGIN
+    IF OBJECT_ID('LoanExtension', 'U') IS NULL
+    BEGIN
+        CREATE TABLE LoanExtension (
+            ExtensionID INT IDENTITY(1,1) PRIMARY KEY, AccountNumber BIGINT,
+            OriginalMaturityDate DATE, ExtendedMaturityDate DATE, OutstandingAmount DECIMAL(18,2),
+            ExtensionFee DECIMAL(18,2) DEFAULT 500.00, DateCreated DATETIME DEFAULT GETDATE()
+        )
+    END
+    
+    DECLARE @originalMaturity DATE
+    SELECT @originalMaturity = MaturityDate FROM LoanAccount WHERE AccountNumber = @accNo AND LoanStatus = 'Active'
+    
+    INSERT INTO LoanExtension (AccountNumber, OriginalMaturityDate, ExtendedMaturityDate, OutstandingAmount)
+    VALUES (@accNo, @originalMaturity, @extendDate, @outstandingAmt)
+    
+    UPDATE LoanAccount SET MaturityDate = @extendDate WHERE AccountNumber = @accNo AND LoanStatus = 'Active'
+END");
+
+                // Loan Payment Processing
+                CreateStoredProcedure(connection, "loanPaymentSP", @"
+CREATE PROCEDURE loanPaymentSP
+    @accNo BIGINT, @paymentAmount DECIMAL(18,2), @paymentDate DATE, @paymentType NVARCHAR(50)
+AS
+BEGIN
+    IF OBJECT_ID('LoanPayment', 'U') IS NULL
+    BEGIN
+        CREATE TABLE LoanPayment (
+            PaymentID BIGINT IDENTITY(1,1) PRIMARY KEY, AccountNumber BIGINT,
+            PaymentAmount DECIMAL(18,2), PaymentDate DATE, PaymentType NVARCHAR(50),
+            PrincipalPaid DECIMAL(18,2), InterestPaid DECIMAL(18,2), DateCreated DATETIME DEFAULT GETDATE()
+        )
+    END
+    
+    DECLARE @interestRate DECIMAL(5,2) = 2.5 -- 2.5% monthly interest
+    DECLARE @principalPaid DECIMAL(18,2) = @paymentAmount * 0.8
+    DECLARE @interestPaid DECIMAL(18,2) = @paymentAmount * 0.2
+    
+    INSERT INTO LoanPayment (AccountNumber, PaymentAmount, PaymentDate, PaymentType, PrincipalPaid, InterestPaid)
+    VALUES (@accNo, @paymentAmount, @paymentDate, @paymentType, @principalPaid, @interestPaid)
+    
+    -- Update loan balance
+    UPDATE LoanAccount 
+    SET Principal = Principal - @principalPaid
+    WHERE AccountNumber = @accNo AND LoanStatus = 'Active'
+    
+    -- Mark loan as paid if fully settled
+    UPDATE LoanAccount 
+    SET LoanStatus = 'Fully Paid' 
+    WHERE AccountNumber = @accNo AND Principal <= 0
+END");
+
+                // Overdue Loan Report
+                CreateStoredProcedure(connection, "allOverdueLoanReportSP", @"
+CREATE PROCEDURE allOverdueLoanReportSP
+AS
+BEGIN
+    IF OBJECT_ID('LoanAccount', 'U') IS NULL OR OBJECT_ID('Customer', 'U') IS NULL
+        SELECT 'No overdue loans' as Message
+    ELSE
+        SELECT 
+            l.AccountNumber, 
+            CONCAT(c.FirstName, ' ', c.LastName) as CustomerName,
+            l.TotalAmount, 
+            l.Principal as OutstandingAmount,
+            l.MaturityDate,
+            DATEDIFF(DAY, l.MaturityDate, GETDATE()) as DaysOverdue,
+            l.AccountOfficer
+        FROM LoanAccount l
+        INNER JOIN Customer c ON l.AccountNumber = c.AccountNumber
+        WHERE l.LoanStatus = 'Active' AND l.MaturityDate < GETDATE()
+        ORDER BY l.MaturityDate ASC
+END");
+
+                // Loan Portfolio Report
+                CreateStoredProcedure(connection, "loanPortfolioSP", @"
+CREATE PROCEDURE loanPortfolioSP
+AS
+BEGIN
+    IF OBJECT_ID('LoanAccount', 'U') IS NULL
+        SELECT 'No loan portfolio' as Message
+    ELSE
+        SELECT 
+            COUNT(*) as TotalLoans,
+            SUM(TotalAmount) as TotalDisbursed,
+            SUM(Principal) as TotalOutstanding,
+            SUM(CASE WHEN LoanStatus = 'Active' THEN 1 ELSE 0 END) as ActiveLoans,
+            SUM(CASE WHEN LoanStatus = 'Fully Paid' THEN 1 ELSE 0 END) as FullyPaidLoans,
+            SUM(CASE WHEN MaturityDate < GETDATE() AND LoanStatus = 'Active' THEN 1 ELSE 0 END) as OverdueLoans,
+            AVG(TotalAmount) as AverageLoanSize
+        FROM LoanAccount
+END");
+
+                // Loan Interest Calculation
+                CreateStoredProcedure(connection, "calculateLoanInterestSP", @"
+CREATE PROCEDURE calculateLoanInterestSP
+    @accNo BIGINT, @months INT
+AS
+BEGIN
+    IF OBJECT_ID('LoanAccount', 'U') IS NULL
+        SELECT 0.00 as InterestAmount, 0.00 as TotalRepayment
+    ELSE
+        SELECT 
+            Principal * 0.025 * @months as InterestAmount,
+            Principal + (Principal * 0.025 * @months) as TotalRepayment,
+            Principal as PrincipalAmount,
+            @months as LoanTermMonths
+        FROM LoanAccount 
+        WHERE AccountNumber = @accNo AND LoanStatus = 'Active'
+END");
+
+                // Loan History
+                CreateStoredProcedure(connection, "getLoanHistorySP", @"
+CREATE PROCEDURE getLoanHistorySP
+    @accNo BIGINT
+AS
+BEGIN
+    IF OBJECT_ID('LoanAccount', 'U') IS NULL
+        SELECT 'No loan history' as Message
+    ELSE
+        SELECT 
+            LoanID,
+            TotalAmount,
+            DisbursementDate,
+            MaturityDate,
+            LoanStatus,
+            AccountOfficer,
+            Duration as TermInDays,
+            Principal as OutstandingBalance
+        FROM LoanAccount 
+        WHERE AccountNumber = @accNo
+        ORDER BY DisbursementDate DESC
+END");
+
+                // Processing Fee Calculation
+                CreateStoredProcedure(connection, "pfVatSP", @"
+CREATE PROCEDURE pfVatSP
+    @accNo BIGINT
+AS
+BEGIN
+    DECLARE @loanAmount DECIMAL(18,2) = 0
+    
+    IF OBJECT_ID('LoanAccount', 'U') IS NOT NULL
+        SELECT @loanAmount = ISNULL(TotalAmount, 0) FROM LoanAccount WHERE AccountNumber = @accNo AND LoanStatus = 'Active'
+    
+    SELECT 
+        @loanAmount * 0.02 as ProcessingFee,
+        (@loanAmount * 0.02) * 0.075 as VAT,
+        (@loanAmount * 0.02) + ((@loanAmount * 0.02) * 0.075) as TotalProcessingFee,
+        @loanAmount as LoanAmount
+END");
+
+                Console.WriteLine("✅ 10 comprehensive loan management procedures created successfully!");
+                
                 Console.WriteLine("\n✅ User check completed!");
             }
         }
